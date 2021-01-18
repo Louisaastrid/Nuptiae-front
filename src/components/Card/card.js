@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, CardContent,Typography ,CardMedia,CardActionArea, makeStyles , CardActions, Button} from '@material-ui/core';
+import {Card, CardContent,Typography ,CardMedia,CardActionArea, makeStyles , CardActions, Button , Divider, Grid} from '@material-ui/core';
 import {string, number} from 'prop-types'
 
 const imageSize = 350;
@@ -14,6 +14,13 @@ const style = makeStyles((theme)=>({
     maxWidth: imageSize,
 
   },
+  description_text: {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    "-webkit-line-clamp": 6,
+    "-webkit-box-orient": "vertical",
+  },
  
 }));
 export default function card({name, description, price, imageUrl}) {
@@ -25,24 +32,28 @@ export default function card({name, description, price, imageUrl}) {
        {imageUrl && (<CardMedia className={classes.media}
           component="img"
           alt={name}
-
           image= {imageUrl}
           title={name}
         />)}
        <CardContent>
-          <Typography gutterBottom variant="h5" comriptionponent="h2">
-           {name}
+          <Grid container alignItems="center">
+          <Grid item xs> 
+          <Typography gutterBottom variant="h5">
+           {name} 
           </Typography>
-             <Typography variant="paragraph" color="textSecondary" component="p">
-           { description}
+          </Grid>
+          <Grid item> 
+              <Typography gutterBottom variant="h6">
+           ${price}
+         
           </Typography>
-             <Typography variant="h6"  component="p">
-           à partir de {price}
+            </Grid>
+          </Grid>
+             <Typography className={classes.description_text} variant="body2" color="textSecondary" component="p" >
+         { description}
+          </Typography> 
            
-          </Typography>
-        
-        </CardContent>
-     
+        </CardContent> 
         </CardActionArea>
         <CardActions>
         <Button size="small" color="primary">

@@ -1,13 +1,22 @@
 
 import Destinations from "./views/destinations"
 import Header from './components/header/header'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Caroussel from './components/Caroussel/Caroussel'
+import Filter from './components/Filter/filter'
 function App() {
   return (
+    <Router> 
     <div className="App">
       <Header/>
-      
-       <Destinations/>
+      <Caroussel/>
+      <div>
+         <Filter/>
+      </div>
+       {/* <Destinations/> */}
+        <Route path="/destinations" component={Destinations} />
     </div>
+    </Router>
   );
 }
 

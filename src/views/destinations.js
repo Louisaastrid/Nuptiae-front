@@ -35,7 +35,7 @@ const [data, setData] = useState([]);
     return (
         <Grid container justify="space-evenly" >
          {data.map((test)=>(
-             <Grid item xs={4}>
+             <Grid item xs={2}>
              <Card  name={test.name}
             description = {test.description}
                 imageUrl ={cataUrl}
