@@ -11,9 +11,9 @@ function App() {
     <div className="App">
       <Header/>
       <Caroussel/>
-      {/* <div>
+      <div>
          <Filter/>
-      </div> */}
+      </div>
    
        {/* <Destinations/> */}
         <Route path="/destinations" component={Destinations} />
