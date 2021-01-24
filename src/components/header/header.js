@@ -1,18 +1,28 @@
 import React from 'react'
-import {AppBar,Toolbar,Typography,Button, makeStyles } from '@material-ui/core'
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-
+import {Toolbar, AppBar,Button, makeStyles,    } from '@material-ui/core'
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 
 const style = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
+  },
+    button: {
+    width:'30px' ,
+  },
+    
+  header : {
+    backgroundColor: '#2A3848',
+    color: '#ffffff',
+  },
+    coor : {
+    color: '#ffffff',
   },
 }));
 
@@ -21,21 +31,11 @@ export default function header() {
 const classes = style();
 
     return (
-             <AppBar position="sticky">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title} >
-            Nuptiae
-          </Typography>    
-          <Tabs>
-          <Tab label="Accueil">
-          </Tab>
-          <Tab label="Destinations" />
-          <Tab label="Activités" />
-          <Tab label="Liste de noce" />
-          <Tab label="Blog" />
-        </Tabs>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+    //   <AppBar className={classes.header} position="sticky">
+    //     <Button color="inherit"> <SupervisorAccountIcon/>  Mon compte </Button>
+    //  </AppBar>
+    <div className={classes.header}>
+          <Button className={classes.coor} > <SupervisorAccountIcon/>  Mon compte </Button>
+    </div>
     )
 }
