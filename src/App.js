@@ -14,9 +14,10 @@ function App() {
       <div>
          <Filter/>
       </div>
-      <Footer/>
+   
        {/* <Destinations/> */}
         <Route path="/destinations" component={Destinations} />
+      <Footer/>
     </div>
     </Router>
   );

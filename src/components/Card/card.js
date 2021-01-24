@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, CardContent,Typography ,CardMedia,CardActionArea, makeStyles , CardActions, Button , Divider, Grid} from '@material-ui/core';
+import {Card, CardContent,Typography ,CardMedia,CardActionArea, makeStyles , CardActions, Button , Grid} from '@material-ui/core';
 import {string, number} from 'prop-types'
 
 const imageSize = 350;
