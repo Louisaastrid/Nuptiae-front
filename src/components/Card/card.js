@@ -27,6 +27,7 @@ export default function card({name, description, price, imageUrl}) {
    const classes = style();
     
     return (
+      
       <Card className={classes.root}>
       <CardActionArea>
        {imageUrl && (<CardMedia className={classes.media}

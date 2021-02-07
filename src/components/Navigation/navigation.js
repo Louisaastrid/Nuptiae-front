@@ -2,6 +2,7 @@ import React from 'react'
 import {AppBar,Toolbar,Typography,Button, makeStyles } from '@material-ui/core'
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+// import  SearchInpput from "../SearchBarre/search";
 
 
 const style = makeStyles((theme) => ({
@@ -31,6 +32,7 @@ export default function navigation() {
           <Tab label="Activités" />
           <Tab label="Liste de noce" />
           <Tab label="Blog" />
+          {/* <SearchInpput/> */}
         </Tabs>
 
         </Toolbar>

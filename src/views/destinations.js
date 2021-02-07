@@ -3,7 +3,7 @@ import React , {useState,useEffect}  from 'react'
 import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
 import Grid from '@material-ui/core/Grid';
-
+import Search from "../components/SearchBarre/search";
 
 export default function destinations() {
 const cataUrl = useCatImg();
@@ -32,9 +32,13 @@ const [data, setData] = useState([]);
      return <p>ERROR.. : {error}</p>;
     }
     return (
-        <Grid container justify="space-evenly" >
+        <Grid container  alignItems="flex-start"
+        justify="center"
+        direction="row"
+        spacing={2} >
+        {/* <Search/> */}
          {data.map((test)=>(
-             <Grid item xs={3}>
+             <Grid item md={4}>
              <Card  name={test.name}
             description = {test.description}
                 imageUrl ={cataUrl}
