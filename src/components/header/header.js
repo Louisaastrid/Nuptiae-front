@@ -1,5 +1,5 @@
 import React from 'react'
-import {Toolbar, AppBar,Button, makeStyles,    } from '@material-ui/core'
+import {Toolbar, AppBar,Button, makeStyles, Box   } from '@material-ui/core'
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 
 const style = makeStyles((theme) => ({
@@ -20,6 +20,8 @@ const style = makeStyles((theme) => ({
   header : {
     backgroundColor: '#2A3848',
     color: '#ffffff',
+    display :"flex" ,
+    justifyContent :"flex-end"
   },
     coor : {
     color: '#ffffff',
@@ -34,8 +36,8 @@ const classes = style();
     //   <AppBar className={classes.header} position="sticky">
     //     <Button color="inherit"> <SupervisorAccountIcon/>  Mon compte </Button>
     //  </AppBar>
-    <div className={classes.header}>
+    <Box className={classes.header}>
           <Button className={classes.coor} > <SupervisorAccountIcon/>  Mon compte </Button>
-    </div>
+    </Box>
     )
 }
