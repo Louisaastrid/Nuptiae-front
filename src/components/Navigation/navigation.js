@@ -11,8 +11,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 
 const style = makeStyles(() => ({
   root: {
- 
-    color :'transparent'
+    zIndex: "1"
   },
 
   title: {
@@ -39,7 +38,7 @@ export default function navigation() {
     return (
           <ThemeProvider theme={theme}>
 
-          <AppBar position="sticky" color='transparent'>
+        <AppBar position="static" color='transparent' className={classes.root}>
         <Toolbar >
           <Typography variant="h6" className={classes.title} >
            <span className={classes.nameNup}>Nupt</span>
