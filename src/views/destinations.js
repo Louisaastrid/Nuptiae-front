@@ -2,7 +2,7 @@
 import React , {useState,useEffect}  from 'react'
 import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
-import Grid from '@material-ui/core/Grid';
+import {Grid, CircularProgress} from '@material-ui/core';
 import Search from "../components/SearchBarre/search";
 
 export default function destinations() {
@@ -26,7 +26,7 @@ const [data, setData] = useState([]);
     },[]);
 
     if(loading){
-        return <p>loading..</p>;
+        return <p>  <CircularProgress color="#00a8cc" /></p>;
     }
      if(error !==''){
      return <p>ERROR.. : {error}</p>;
