@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 // import  SearchInpput from "../SearchBarre/search";
 import { theme } from "./theme";
 import { ThemeProvider } from "@material-ui/core/styles";
+import {Link} from 'react-router-dom'
 
 
 const style = makeStyles(() => ({
@@ -16,6 +17,7 @@ const style = makeStyles(() => ({
 
   title: {
     flexGrow: 1,
+    textDecoration: 'none'   
   },
   nameNup:{
     color:"#d3de32",
@@ -40,7 +42,7 @@ export default function navigation() {
 
         <AppBar position="static" color='transparent' className={classes.root}>
         <Toolbar >
-          <Typography variant="h6" className={classes.title} >
+          <Typography  variant="h6" className={classes.title} component={Link} to='/' >
            <span className={classes.nameNup}>Nupt</span>
            <span className={classes.nameIae}>iae</span>
            </Typography>
@@ -50,10 +52,10 @@ export default function navigation() {
         textColor="primary"
         onChange={handleChange}
         aria-label="disabled tabs example">
-          <Tab label="Destinations" />
-          <Tab label="Liste de noce" />
-          <Tab label="Activités" />
-          <Tab label="Blog" />
+          <Tab label="Destinations" component={Link} to='/destinations'/>
+          <Tab label="Liste de noce" component={Link} to='/liste' />
+          <Tab label="Activités" component={Link} to='/activites' />
+          <Tab label="Blog" component={Link} to='/blog' />
           {/* <SearchInpput/> */}
         </Tabs>
 

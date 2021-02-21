@@ -13,7 +13,7 @@ const [data, setData] = useState([]);
 
     useEffect(()=>{
         setLoading(true);
-        fetch('https://localhost:44313/api/v1/Catalog/travel')
+        fetch('https://localhost:44313/api/v1/Catalog')
         .then((response)=>response.json())
         .then((data)=>{
             setLoading(false);
