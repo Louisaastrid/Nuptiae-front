@@ -91,12 +91,7 @@ export default function Search() {
               
             />
             </div>
-        {/* <input
-         type="text" 
-         placeholder="search..." 
-         onChange={event=>{setSearchTerm(event.target.value);
-         }}
-         /> */}
+ 
         {data.filter((val)=>{
             if (searchTerm === ""){
                 return val
