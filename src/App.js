@@ -18,16 +18,19 @@ function App() {
     <div className="App">
       <Header/>
       <Navigation/>
-            <Slider/>
+      <Slider/>
 
 
        {/* <Destinations/> */}
-        <Route path="/" component={accueil} />
-        <Route path="/destinations" component={Destinations} />
-        <Route path="/liste" component={listeDeNoce}  />
-        <Route path="/activites" component={activites}  />
-        <Route path="/bloc" component={blog}  />
+        <Switch>
+        <Route path="/" exact component={accueil} />
+        <Route path="/destinations" exact component={Destinations} />
+        <Route path="/liste" exact  component={listeDeNoce}  />
+        <Route path="/activites" exact  component={activites}  />
+        <Route path="/blog" exact  component={blog}  />
+        <Route path="*" exact component={Error404} />
         <Route path="/search" />
+        </Switch>
 
       <Footer/>
     </div>
