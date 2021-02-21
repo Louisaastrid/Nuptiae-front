@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState} from 'react'
-import {AppBar,Toolbar,Typography,Button, makeStyles } from '@material-ui/core'
+import {AppBar,Toolbar,Typography, makeStyles, Link } from '@material-ui/core'
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 // import  SearchInpput from "../SearchBarre/search";
@@ -50,7 +50,8 @@ export default function navigation() {
         textColor="primary"
         onChange={handleChange}
         aria-label="disabled tabs example">
-          <Tab label="Destinations" />
+           
+          <Tab to="/destinations" label="Destinations" />
           <Tab label="Liste de noce" />
           <Tab label="Activités" />
           <Tab label="Blog" />
