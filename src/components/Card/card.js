@@ -1,8 +1,8 @@
 import React from 'react'
-import {Card, CardContent,Typography ,CardMedia,CardActionArea, makeStyles , Grid} from '@material-ui/core';
+import {Card, CardContent,Typography ,CardMedia,CardActionArea, makeStyles , CardActions, Button , Grid} from '@material-ui/core';
 import {string, number} from 'prop-types'
 
-const imageSize = 500;
+const imageSize = 350;
 
 const style = makeStyles((theme)=>({
   root: {
@@ -12,6 +12,7 @@ const style = makeStyles((theme)=>({
    media: {
     height: 175, // 16:9
     maxWidth: imageSize,
+
   },
   description_text: {
     overflow: "hidden",
@@ -20,9 +21,7 @@ const style = makeStyles((theme)=>({
     "-webkit-line-clamp": 6,
     "-webkit-box-orient": "vertical",
   },
-  card_title_style:{
-    color: '#00a8cc',
-  }
+ 
 }));
 export default function card({name, description, price, imageUrl}) {
    const classes = style();
@@ -40,13 +39,13 @@ export default function card({name, description, price, imageUrl}) {
        <CardContent>
           <Grid container alignItems="center">
           <Grid item xs> 
-          <Typography gutterBottom variant="h4" className={classes.card_title_style}>
+          <Typography gutterBottom variant="h5">
            {name} 
           </Typography>
           </Grid>
           <Grid item> 
               <Typography gutterBottom variant="h6">
-          à partir de {price}€
+           ${price}
          
           </Typography>
             </Grid>
@@ -57,6 +56,14 @@ export default function card({name, description, price, imageUrl}) {
            
         </CardContent> 
         </CardActionArea>
+        <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
         </Card>
     )
 }
