@@ -4,7 +4,6 @@ import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
 import {Grid, CircularProgress} from '@material-ui/core';
 // import Search from "../components/SearchBarre/search";
-// import Pagination from '../components/pagination/pagination'
 
 export default function destinations() {
 const cataUrl = useCatImg();
@@ -60,10 +59,10 @@ const showMoreItems = () =>{
         /> 
         </Grid>))}
        
-                {/* <Pagination elmentssPerPage={travelsPerPage}  totalEmlements={data.length}    paginate={paginate}/> */}
+               
 
      </Grid>
       <button onClick={showMoreItems}>Load more</button>
-</>
+        </>
     )
 }

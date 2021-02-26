@@ -26,12 +26,12 @@ const style = makeStyles((theme)=>({
   }
  
 }));
-export default function card({name, description, price, imageUrl}) {
+export default function card({name, description, price, imageUrl,id}) {
    const classes = style();
     
     return (
       
-      <Card className={classes.root}>
+      <Card key={id}className={classes.root}>
       <CardActionArea>
        {imageUrl && (<CardMedia className={classes.media}
           component="img"
