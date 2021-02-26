@@ -3,13 +3,19 @@ import React , {useState,useEffect}  from 'react'
 import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
 import {Grid, CircularProgress} from '@material-ui/core';
-import Search from "../components/SearchBarre/search";
+// import Search from "../components/SearchBarre/search";
+// import Pagination from '../components/pagination/pagination'
 
 export default function destinations() {
 const cataUrl = useCatImg();
 const [loading, setLoading]= useState(true);
 const [error, setError]= useState('');
 const [data, setData] = useState([]);
+const [visible, setVisible] = useState(3);
+const showMoreItems = () =>{
+    setVisible((prevValue) => prevValue +3);
+}
+
 
     useEffect(()=>{
         setLoading(true);
@@ -31,13 +37,20 @@ const [data, setData] = useState([]);
      if(error !==''){
      return <p>ERROR.. : {error}</p>;
     }
+
+    //gests current posts 
+ 
+
+    //   const paginate = pageNumber => setCurrentPage(pageNumber);
+
     return (
+        <>
         <Grid container  alignItems="flex-start"
         justify="center"
         direction="row"
         spacing={2} >
         {/* <Search/> */}
-         {data.map((test)=>(
+         {data.slice(0,visible).map((test)=>(
              <Grid item md={4}>
              <Card  name={test.name}
             description = {test.description}
@@ -46,7 +59,11 @@ const [data, setData] = useState([]);
             price={test.price}
         /> 
         </Grid>))}
-     </Grid>
        
+                {/* <Pagination elmentssPerPage={travelsPerPage}  totalEmlements={data.length}    paginate={paginate}/> */}
+
+     </Grid>
+      <button onClick={showMoreItems}>Load more</button>
+</>
     )
 }

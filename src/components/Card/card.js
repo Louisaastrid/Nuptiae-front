@@ -65,7 +65,8 @@ Card.prototype ={
     name: string.isRequired ,
     description : string.isRequired,
     price  : number.isRequired,
-    imageUrl : string
+    imageUrl : string,
+    // id: number.isRequired,
 };
 
 Card.defaultProps ={
