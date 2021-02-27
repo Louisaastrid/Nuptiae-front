@@ -5,6 +5,10 @@ import Galery from '../components/Galery/galery'
 import {Grid, CircularProgress, makeStyles} from '@material-ui/core';
 import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
+import Header from '../components/header/header'
+import Navigation from '../components/Navigation/navigation'
+import Slider from '../components/Slider/slider'
+
 
 
 const style = makeStyles((theme)=>({
@@ -59,6 +63,9 @@ const classes = style();
     return (
        
      <>
+      <Header/>
+      <Navigation/>
+      <Slider/>
         <div className={classes.root}> 
             {data.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
         </div>

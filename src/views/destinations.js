@@ -4,6 +4,9 @@ import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
 import {Grid, CircularProgress} from '@material-ui/core';
 import Search from "../components/SearchBarre/search";
+import Header from '../components/header/header'
+import Navigation from '../components/Navigation/navigation'
+import Slider from '../components/Slider/slider'
 
 export default function destinations() {
 const cataUrl = useCatImg();
@@ -32,10 +35,15 @@ const [data, setData] = useState([]);
      return <p>ERROR.. : {error}</p>;
     }
     return (
+        <> 
+              <Header/>
+      <Navigation/>
+      <Slider/>
         <Grid container  alignItems="flex-start"
         justify="center"
         direction="row"
         spacing={2} >
+     
         {/* <Search/> */}
          {data.map((test)=>(
              <Grid item md={4}>
@@ -47,6 +55,7 @@ const [data, setData] = useState([]);
         /> 
         </Grid>))}
      </Grid>
+     </>
        
     )
 }

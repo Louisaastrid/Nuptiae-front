@@ -1,6 +1,7 @@
 import React from 'react'
 import {Toolbar, AppBar,Button, makeStyles, Box   } from '@material-ui/core'
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import {Link} from 'react-router-dom'
 
 const style = makeStyles((theme) => ({
   root: {
@@ -37,7 +38,7 @@ const classes = style();
     //     <Button color="inherit"> <SupervisorAccountIcon/>  Mon compte </Button>
     //  </AppBar>
     <Box className={classes.header}>
-          <Button className={classes.coor} > <SupervisorAccountIcon/>  Mon compte </Button>
+          <Button className={classes.coor} component={Link} to='/inscription'> <SupervisorAccountIcon/>  Mon compte </Button>
     </Box>
     )
 }

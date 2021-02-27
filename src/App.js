@@ -12,13 +12,13 @@ import accueil from "./views/accueil";
 import listeDeNoce from "./views/listeDeNoce";
 import blog from "./views/blog";
 import activites from "./views/activites";
+import inscription from "./views/inscription";
+import authentification from "./views/authentification"
 function App() {
   return (
     <Router> 
     <div className="App">
-      <Header/>
-      <Navigation/>
-      <Slider/>
+     
 
 
        {/* <Destinations/> */}
@@ -28,6 +28,8 @@ function App() {
         <Route path="/liste" exact  component={listeDeNoce}  />
         <Route path="/activites" exact  component={activites}  />
         <Route path="/blog" exact  component={blog}  />
+        <Route path="/inscription" exact  component={inscription}  />
+        <Route path="/authentification" exact  component={authentification}  />
         <Route path="*" exact component={Error404} />
         <Route path="/search" />
         </Switch>
