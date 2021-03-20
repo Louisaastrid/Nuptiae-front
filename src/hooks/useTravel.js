@@ -1,21 +1,20 @@
-import React ,{useState, useEffect}  from 'react'
+import {useState, useEffect}  from 'react'
+// import { CircularProgress} from '@material-ui/core';
 
 export default function useTravel() {
-
-
- const [dataTravel, setDataTravel] = useState();
-
-
-
-  useEffect(()=>{
-    const fetchData = async ()=>{
-      const response = await fetch('https://localhost:44313/api/v1/Catalog/travel');
+// const [loading, setLoading]= useState(true);
+// const [error, setError]= useState('');
+const [data, setData] = useState();
+ useEffect(()=>{
+    const fetchDataTravel = async ()=>{
+      const response = await fetch('https://localhost:44313/api/v1/Catalog?pageSize=10');
       const data = await response.json();
       // console.log(data)
-      setDataTravel(data[0].url)
+      setData(data)
     }
 
-    fetchData();
+    fetchDataTravel();
   },[])
- return  dataTravel;
+ return  data;
+ 
 }

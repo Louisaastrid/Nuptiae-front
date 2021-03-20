@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-undef */
-import React , {useState,useEffect}from 'react'
+import React from 'react'
 import Galery from '../components/Galery/galery'
-import {Grid, CircularProgress, makeStyles} from '@material-ui/core';
+import {Grid,makeStyles} from '@material-ui/core';
 import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
 import Slider from '../components/Slider/slider'
+import useTravel from '../hooks/useTravel';
+
 
 
 
@@ -36,30 +38,11 @@ const style = makeStyles((theme)=>({
 export default function accueil() {
 const classes = style();
     const cataUrl = useCatImg();
-    const [loading, setLoading]= useState(true);
-    const [error, setError]= useState('');
-    const [data, setData] = useState([1]);
+    const travelData = useTravel();
 
-    useEffect(()=>{
-        setLoading(true);
-        fetch('https://localhost:44313/api/v1/Catalog')
-        .then((response)=>response.json())
-        .then((data)=>{
-            setLoading(false);
-            setData(data);
-        })
-        .catch((e)=>{
-            setLoading(false);
-            setError('fetch failed');
-        });
-    },[]);
 
-    if(loading){
-        return <p>  <CircularProgress color="#00a8cc" /></p>;
-    }
-     if(error !==''){
-     return <p>ERROR.. : {error}</p>;
-    }
+   
+    
     return (
        
      <>
@@ -67,7 +50,7 @@ const classes = style();
       <Navigation/>
       <Slider/>
         <div className={classes.root}> 
-            {data.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
+            {travelData && travelData.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
         </div>
         <div className={classes.root} >
             <p className={classes.slogan}>Voyez grand</p>
@@ -79,9 +62,9 @@ const classes = style();
             direction="row"
             spacing={2} >
 
-            {data.map((test)=>(<Grid item md={4}><Card  name={test.name}description = {test.description} imageUrl ={cataUrl}
+            {travelData&&travelData.map((test)=>(<Grid item md={4}><Card  name={test.name}description = {test.description} imageUrl ={cataUrl}
             price={test.price}/> 
-            </Grid>)).splice(data.length-3)}
+            </Grid>)).splice(travelData.length-3)}
         </Grid>
     </>
     )
