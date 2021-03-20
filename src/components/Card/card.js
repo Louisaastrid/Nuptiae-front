@@ -1,6 +1,10 @@
-import React from 'react'
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, {useState} from 'react'
 import {Card, CardContent,Typography ,CardMedia,CardActionArea, makeStyles  , Grid} from '@material-ui/core';
 import {string, number} from 'prop-types'
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
+import Modal from '@material-ui/core/Modal';
 
 const imageSize = 500;
 
@@ -14,6 +18,9 @@ const style = makeStyles((theme)=>({
     maxWidth: imageSize,
 
   },
+  modalStyle:{
+    backgroundColor:"#7bc0a3",
+  },
   description_text: {
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -26,12 +33,22 @@ const style = makeStyles((theme)=>({
   }
  
 }));
-export default function card({name, description, price, imageUrl}) {
+
+export default function card({id,name, description, price, imageUrl, onClick }) {
    const classes = style();
-    
+  
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
     return (
-      
-      <Card className={classes.root}>
+      <> 
+      <Card key={id} onClick={onClick} className={classes.root}>
       <CardActionArea>
        {imageUrl && (<CardMedia className={classes.media}
           component="img"
@@ -58,10 +75,32 @@ export default function card({name, description, price, imageUrl}) {
            
         </CardContent> 
         </CardActionArea>
+         <CardActions>
+        <Button size="small" color="primary">
+          Ajouter à la liste 
+        </Button>
+        <Button variant="contained"  size="small" color="primary" style={classes.button} onClick={handleOpen} >
+          Voir plus
+        </Button>
+         <Modal className = {classes.modalStyle} open={open} onClose={handleClose} aria-labelledby={id} aria-describedby={id}>
+                  <div>
+                    <img className={classes.media} alt={id} src={imageUrl}></img>
+                    <h1>{name}</h1>
+                    <p>{description}</p>
+                    <p>{price}€</p>
+
+                  </div>
+                </Modal>
+      </CardActions>
+             
+
         </Card>
+         {/* <Modal onClose={handleClose} item={description} aria-labelledby={name} aria-describedby={description}/> */}
+        </>
     )
 }
 Card.prototype ={
+    id: number,
     name: string.isRequired ,
     description : string.isRequired,
     price  : number.isRequired,
