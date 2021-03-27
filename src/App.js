@@ -1,13 +1,9 @@
 
 import Destinations from "./views/destinations"
 import Error404 from "./views/error404page"
-import Header from './components/header/header'
 import { BrowserRouter as Router, Route ,Switch } from "react-router-dom";
 import Footer from './components/footer/footer'
-import Navigation from './components/Navigation/navigation'
-import Slider from "./components/Slider/slider";
 
-import  SearchInpput from "./components/SearchBarre/search";
 import accueil from "./views/accueil";
 import listeDeNoce from "./views/listeDeNoce";
 import blog from "./views/blog";

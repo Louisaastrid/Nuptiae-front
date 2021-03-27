@@ -7,9 +7,9 @@ import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
-import Slider from '../components/Slider/slider'
 import useTravel from '../hooks/useTravel';
-
+import Images from '../images'
+import Slider from '../components/Slider/slider'
 
 
 
@@ -48,7 +48,8 @@ const classes = style();
      <>
       <Header/>
       <Navigation/>
-      <Slider/>
+          <Slider images={Images}  />
+
         <div className={classes.root}> 
             {travelData && travelData.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
         </div>

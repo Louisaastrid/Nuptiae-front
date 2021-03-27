@@ -1,26 +1,26 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React , {useState} from 'react'
 import Card from '../components/Card/card'
-import CardView from '../components/Card/carView'
 import useCatImg from '../hooks/useCatImg';
 import {Grid} from '@material-ui/core';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
 import Slider from '../components/Slider/slider'
 import useTravel from '../hooks/useTravel';
+import Images from '../images'
 
 export default function destinations() {
 const cataUrl = useCatImg();
 const travelData = useTravel();
 
-const [card, setCard]= useState(0);
+const setCard = useState(0);
 const loadCard = i =>{setCard(i)}
 
     return (
         <> 
     <Header/>
       <Navigation/>
-      <Slider/>
+     <Slider images={Images}  />
         <Grid container  alignItems="flex-start"
         justify="center"
         direction="row"
