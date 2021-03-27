@@ -1,20 +1,31 @@
-import React from 'react'
-import {makeStyles } from '@material-ui/core'
+import React, { useRef } from 'react';
+import '../Slider/slider.css'
+import useSlider from '../../hooks/useSlider'
 
+const Slider = ({images}) => {  
+  
+  const slideImage = useRef(null)
+  const slideText = useRef(null)
+  const { goToPreviousSlide, goToNextSlide } = useSlider(slideImage, slideText, images)
 
-const style = makeStyles({
-  styleCarou: {
-    backgroundColor: "#70af85",
-
-    height: 560,
-  },
-
-});
-export default function slider() {
-   const classes = style();
     return (
-        <div className={classes.styleCarou}>
-
+          <div className="slider" ref={slideImage}>
+            
+            <div className="slider--content">
+              <button onClick={goToPreviousSlide} className="slider__btn-left">
+                <i className="fas fa-angle-left"> </i>
+              </button>
+             <div className="slider--feature">
+                <h1 className="feature--title">NUPTIAE</h1>
+                <p ref={slideText} className="feature--text"></p>
+                <button className="feature__btn">Get started</button>
+              </div>
+              <button onClick={goToNextSlide} className="slider__btn-right">
+                <i className="fas fa-angle-right"></i>
+              </button>
+            </div>
         </div>
-    )
+    );
 }
+
+export default Slider;
