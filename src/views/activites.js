@@ -9,7 +9,7 @@ export default function activites() {
         <div>
              <Header/>
       <Navigation/>
-      <Slider/>
+      {/* <Slider/> */}
             
         </div>
     )

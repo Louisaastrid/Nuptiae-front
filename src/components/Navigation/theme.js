@@ -8,5 +8,5 @@ export const theme = createMuiTheme({
       main: "#d3de32",
     },
   },
-
+  
 });
