@@ -10,6 +10,8 @@ import blog from "./views/blog";
 import activites from "./views/activites";
 import inscription from "./views/inscription";
 import authentification from "./views/authentification"
+import DetailVoyage from "./views/detailVoyage";
+
 function App() {
   return (
     <Router> 
@@ -20,10 +22,13 @@ function App() {
        {/* <Destinations/> */}
         <Switch>
         <Route path="/" exact component={accueil} />
-        <Route path="/destinations" exact component={Destinations} />
-        <Route path="/liste" exact  component={listeDeNoce}  />
-        <Route path="/activites" exact  component={activites}  />
-        <Route path="/blog" exact  component={blog}  />
+        <Route path="/destinations/" exact component={Destinations} />
+        <Route path="/destination/:id" exact component={Destinations} > 
+        <DetailVoyage/>
+        </Route>
+        <Route path="/liste/" exact  component={listeDeNoce}  />
+        <Route path="/activites/" exact  component={activites}  />
+        <Route path="/activites/" exact  component={activites}  />
         <Route path="/inscription" exact  component={inscription}  />
         <Route path="/authentification" exact  component={authentification}  />
         <Route path="*" exact component={Error404} />

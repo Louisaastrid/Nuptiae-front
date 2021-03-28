@@ -8,7 +8,7 @@ export default function listeDeNoce() {
         <div>
              <Header/>
       <Navigation/>
-      <Slider/>
+      {/* <Slider/> */}
         </div>
     )
 }

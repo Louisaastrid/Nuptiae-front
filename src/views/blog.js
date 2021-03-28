@@ -8,7 +8,7 @@ export default function blog() {
         <div>
              <Header/>
       <Navigation/>
-      <Slider/>
+      {/* <Slider/> */}
             
         </div>
     )

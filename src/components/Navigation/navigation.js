@@ -7,8 +7,7 @@ import Tab from "@material-ui/core/Tab";
 // import  SearchInpput from "../SearchBarre/search";
 import { theme } from "./theme";
 import { ThemeProvider } from "@material-ui/core/styles";
-import {Link} from 'react-router-dom'
-
+import {Link, NavLink} from 'react-router-dom'
 
 const style = makeStyles(() => ({
   root: {
@@ -55,7 +54,9 @@ export default function navigation() {
           <Tab label="Destinations" component={Link} to='/destinations'/>
           <Tab label="Liste de noce" component={Link} to='/liste' />
           <Tab label="Activités" component={Link} to='/activites' />
-          <Tab label="Blog" component={Link} to='/blog' />
+           <Tab label="Blog" component={Link} to='/blog' />
+        
+         
           {/* <SearchInpput/> */}
         </Tabs>
 
