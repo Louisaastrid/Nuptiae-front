@@ -33,7 +33,7 @@ if(loading){
          {travelData &&travelData.map((item, index)=>(
            
              <Grid key={index}item md={4}>
-                <Link to={{
+                <Link style={{ textDecoration: 'none' }} to={{
                     pathname:`/destination/${item.id}`,
                     state:{ nom : item.name,
                     description: item.description,
@@ -42,7 +42,7 @@ if(loading){
                     date : item.departure, 
                     pays : item.country,
                     ville : item.town}}}> 
-                        <Card  
+                        <Card   
                         key={item.id} 
                         name={item.name}
                         description = {item.description}

@@ -22,9 +22,10 @@ function App() {
        {/* <Destinations/> */}
         <Switch>
         <Route path="/" exact component={accueil} />
+             
         <Route path="/destinations/" exact component={Destinations} />
         <Route path="/destination/:id" exact component={Destinations} > 
-        <DetailVoyage/>
+         <DetailVoyage/>
         </Route>
         <Route path="/liste/" exact  component={listeDeNoce}  />
         <Route path="/activites/" exact  component={activites}  />

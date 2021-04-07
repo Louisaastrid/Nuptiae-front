@@ -66,35 +66,45 @@ export default function StickyFooter() {
                    
                    </p> </div>
                <div> 
-                   <h3> Product </h3>
-                   <p>blabla </p>
-                   <p>blabla </p>
-                   <p>blabla </p>
+                   <h3> Nuptiae </h3>
+                   <p>Qui sommes-nous ?</p>
+                   <p>Mentions légales</p>
+                   <p>CGV</p>
+                   <p>Politique de confidentialité</p>
+                   <p>Politique de cookies</p>
+                   <p>Plan de site</p>
 
             </div>
             <div> 
-                <h3> Support </h3> 
-                   <p>blabla </p>
-                   <p>blabla </p>
-                   <p>blabla </p>
+                <h3> Infos pratiques </h3> 
+                   <p>Contactez nous </p>
+                   <p>Avis clients</p>
+                   <p>Voyager avec nuptiae</p>
+                   <p>Faq</p>
+                   <p>Agence de voyage de noces</p>
 
             </div>
              <div>
-                 <h3> Legal </h3>
-                    <p>blabla </p>
-                   <p>blabla </p>
-                   <p>blabla </p>
+                 <h3>Nos services</h3>
+                    <p>votre dossier</p>
+                   <p>Devis</p>
+                   <p>Nos brochures</p>
+                   <p>Espace pro</p>
                     </div>
-                <div> <h3> Login </h3>
-                    <p>blabla </p>
-                   <p>blabla </p>
-                   <p>blabla </p></div>
-            <div> <h3> Compagny </h3> 
+                <div> <h3> Avant de partir </h3>
+                    <p>Bon à savoir</p>
+                   <p>Formalités</p>
+                   <p>Informations santé   </p>
+                   <p>Services additionnels</p>
+                   <p>Nos assurances</p>
+                   </div>
+            <div> <h3> Contact </h3> 
                 <p>blabla </p>
                    <p>blabla </p>
                    <p>blabla </p></div>
             
              </div>
+             <div>Nous suivre </div>
              <hr></hr>
           <Copyright />
         </Container>
