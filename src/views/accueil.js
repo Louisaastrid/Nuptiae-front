@@ -10,6 +10,8 @@ import Navigation from '../components/Navigation/navigation'
 import useTravel from '../hooks/useTravel';
 import Images from '../images'
 import Slider from '../components/Slider/slider'
+import {Link} from 'react-router-dom'
+
 
 
 
@@ -48,7 +50,7 @@ const classes = style();
      <>
       <Header/>
       <Navigation/>
-          <Slider images={Images}  />
+          <Slider  />
 
         <div className={classes.root}> 
             {travelData && travelData.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
@@ -63,8 +65,21 @@ const classes = style();
             direction="row"
             spacing={2} >
 
-            {travelData&&travelData.map((test)=>(<Grid item md={4}><Card  name={test.name}description = {test.description} imageUrl ={cataUrl}
+            {travelData&&travelData.map((test)=>(
+            <Grid item md={4}>
+                  <Link style={{ textDecoration: 'none' }} to={{
+                    pathname:`/destination/${test.id}`,
+                    state:{
+                    nom : test.name,
+                    description: test.description,
+                    price: test.price,
+                    image : cataUrl,
+                    date : test.departure, 
+                    pays : test.country,
+                    ville : test.town}}}> 
+              <Card  name={test.name}description = {test.description} imageUrl ={cataUrl}
             price={test.price}/> 
+             </Link>
             </Grid>)).splice(travelData.length-3)}
         </Grid>
     </>

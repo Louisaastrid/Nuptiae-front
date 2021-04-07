@@ -1,31 +1,29 @@
-import React, { useRef } from 'react';
+import React from 'react'
 import '../Slider/slider.css'
-import useSlider from '../../hooks/useSlider'
 
-const Slider = ({images}) => {  
-  
-  const slideImage = useRef(null)
-  const slideText = useRef(null)
-  const { goToPreviousSlide, goToNextSlide } = useSlider(slideImage, slideText, images)
 
-    return (
-          <div className="slider" ref={slideImage}>
-            
-            <div className="slider--content">
-              <button onClick={goToPreviousSlide} className="slider__btn-left">
-                <i className="fas fa-angle-left"> </i>
-              </button>
-             <div className="slider--feature">
-                <h1 className="feature--title">NUPTIAE</h1>
-                <p ref={slideText} className="feature--text"></p>
-                <button className="feature__btn">Get started</button>
-              </div>
-              <button onClick={goToNextSlide} className="slider__btn-right">
-                <i className="fas fa-angle-right"></i>
-              </button>
-            </div>
+export default function slider() {
+  return (
+    <div className='hero-container'>
+          <video src = "/videos/video_1.mp4" autoPlay loop muted/>
+           
+          <h1>NUPTIAE</h1>
+          <p>L'amour commence ici</p>
+          <div className="hero-btns">
+            <button 
+            className='btns' 
+            buttonStyle='btn--outline' 
+            buttonSize='btn--large'>
+              Mes souhaits  
+            </button>      
+            <button 
+            className='btns' 
+            buttonStyle='btn--primary' 
+            buttonSize='btn--large'>
+              Voyager 
+            </button>
+          </div>
+
         </div>
-    );
+  )
 }
-
-export default Slider;
