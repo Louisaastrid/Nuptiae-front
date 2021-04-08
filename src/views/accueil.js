@@ -8,7 +8,6 @@ import useCatImg from '../hooks/useCatImg';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
 import useTravel from '../hooks/useTravel';
-import Images from '../images'
 import Slider from '../components/Slider/slider'
 import {Link} from 'react-router-dom'
 

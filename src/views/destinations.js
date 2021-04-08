@@ -3,7 +3,7 @@
 import React  from 'react'
 import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
-import {Grid, makeStyles} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
 import Slider from '../components/Slider/slider'

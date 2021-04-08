@@ -4,10 +4,9 @@ import React, {useState} from 'react'
 import {AppBar,Toolbar,Typography, makeStyles } from '@material-ui/core'
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-// import  SearchInpput from "../SearchBarre/search";
 import { theme } from "./theme";
 import { ThemeProvider } from "@material-ui/core/styles";
-import {Link, NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const style = makeStyles(() => ({
   root: {

@@ -6,7 +6,6 @@ import Footer from './components/footer/footer'
 
 import accueil from "./views/accueil";
 import listeDeNoce from "./views/listeDeNoce";
-import blog from "./views/blog";
 import activites from "./views/activites";
 import inscription from "./views/inscription";
 import authentification from "./views/authentification"
