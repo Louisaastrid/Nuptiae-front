@@ -1,12 +1,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, {useState} from 'react'
+import React  from 'react'
 import {Card, CardContent,Typography ,CardMedia,CardActionArea, makeStyles  , Grid} from '@material-ui/core';
 import {string, number} from 'prop-types'
 import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
-import Modal from '@material-ui/core/Modal';
-import { Link, useParams, useLocation } from 'react-router-dom';
+
 
 const imageSize = 500;
 
