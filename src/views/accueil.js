@@ -7,9 +7,9 @@ import Card from '../components/Card/card'
 import useCatImg from '../hooks/useCatImg';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
-import useTravel from '../hooks/useTravel';
-import Slider from '../components/Slider/slider'
+// import Slider from '../components/Slider/slider'
 import {Link} from 'react-router-dom'
+import useFetch from '../hooks/useFetch';
 
 
 
@@ -38,27 +38,28 @@ const style = makeStyles((theme)=>({
 
 export default function accueil() {
 const classes = style();
-    const cataUrl = useCatImg();
-    const travelData = useTravel();
+const cataUrl = useCatImg();
+const [loading, travelData] = useFetch('https://localhost:53467/api/v1/Catalog?pageSize=10');
 
 
    
-    
+    if(loading){
+    return 'Chargement...'
+}
     return (
        
      <>
       <Header/>
       <Navigation/>
-          <Slider  />
+          {/* <Slider  /> */}
 
         <div className={classes.root}> 
             {travelData && travelData.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
         </div>
         <div className={classes.root} >
             <p className={classes.slogan}>Voyez grand</p>
-            <h4 className={classes.sentence}>Faite vous plaisir pour une lune de miel magnifique</h4>
+            <h4 className={classes.sentence}>Faites vous plaisir pour une lune de miel magnifique</h4>
         </div>
-
         <Grid container  alignItems="flex-start"
             justify="center"
             direction="row"
