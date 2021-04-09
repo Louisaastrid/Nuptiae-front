@@ -4,7 +4,6 @@ import React from 'react'
 import Galery from '../components/Galery/galery'
 import {Grid,makeStyles} from '@material-ui/core';
 import Card from '../components/Card/card'
-import useCatImg from '../hooks/useCatImg';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
 // import Slider from '../components/Slider/slider'
@@ -38,8 +37,7 @@ const style = makeStyles((theme)=>({
 
 export default function accueil() {
 const classes = style();
-const cataUrl = useCatImg();
-const [loading, travelData] = useFetch('https://localhost:53467/api/v1/Catalog?pageSize=10');
+const [loading, travelData] = useFetch('https://localhost:65211/api/v1/Catalog?pageSize=10');
 
 
    
@@ -60,7 +58,7 @@ const [loading, travelData] = useFetch('https://localhost:53467/api/v1/Catalog?p
             <p className={classes.slogan}>Voyez grand</p>
             <h4 className={classes.sentence}>Faites vous plaisir pour une lune de miel magnifique</h4>
         </div>
-        <Grid container  alignItems="flex-start"
+          <Grid container  alignItems="flex-start"
             justify="center"
             direction="row"
             spacing={2} >
@@ -73,11 +71,11 @@ const [loading, travelData] = useFetch('https://localhost:53467/api/v1/Catalog?p
                     nom : test.name,
                     description: test.description,
                     price: test.price,
-                    image : cataUrl,
+                    image : test.picture,
                     date : test.departure, 
                     pays : test.country,
                     ville : test.town}}}> 
-              <Card  name={test.name}description = {test.description} imageUrl ={cataUrl}
+              <Card  name={test.name}description = {test.description} imageUrl ={test.picture}
             price={test.price}/> 
              </Link>
             </Grid>)).splice(travelData.length-3)}
