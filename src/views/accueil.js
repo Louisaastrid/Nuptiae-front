@@ -37,7 +37,7 @@ const style = makeStyles((theme)=>({
 
 export default function accueil() {
 const classes = style();
-const [loading, travelData] = useFetch('https://localhost:65211/api/v1/Catalog?pageSize=10');
+const [loading, travelData] = useFetch('https://localhost:58579/api/v1/Catalog?pageSize=10');
 
 
    
@@ -50,7 +50,6 @@ const [loading, travelData] = useFetch('https://localhost:65211/api/v1/Catalog?p
       <Header/>
       <Navigation/>
           {/* <Slider  /> */}
-
         <div className={classes.root}> 
             {travelData && travelData.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
         </div>
