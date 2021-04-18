@@ -13,9 +13,7 @@ export default function destinations() {
  
 const [loading, travelData] = useFetch('https://localhost:58579/api/v1/Catalog?pageSize=10');
 const [searchTerm, setSearchTerm] = useState("")
-const [hits, setHits] = useState([]);
- const [currentPage, setcurrentPage] = useState(0);    
-const [pageCount, setPageCount] = useState(1); 
+
 
 const handleSearchTerm = (e) => {
 let value = e.target.value
@@ -38,7 +36,7 @@ if(loading){
         spacing={2} >   
         { travelData.filter((item)=>{
            return item.country.includes(searchTerm);
-        },hits).map( ( item, index)=>(
+        }).map( ( item, index)=>(
            
              <Grid key={index}item md={4}>
                 <Link style={{ textDecoration: 'none' }} to={{
