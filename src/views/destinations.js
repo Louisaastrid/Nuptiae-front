@@ -11,8 +11,10 @@ import useFetch from '../hooks/useFetch';
 
 export default function destinations() {
  
-const [loading, travelData] = useFetch('https://localhost:65211/api/v1/Catalog?pageSize=10');
+const [loading, travelData] = useFetch('https://localhost:58579/api/v1/Catalog?pageSize=10');
 const [searchTerm, setSearchTerm] = useState("")
+
+
 const handleSearchTerm = (e) => {
 let value = e.target.value
 setSearchTerm(value);
@@ -20,7 +22,7 @@ setSearchTerm(value);
 
 
 if(loading){
-    return 'Chargement...'
+    return 'Chargement...'  
 }
     return (
         
@@ -33,7 +35,7 @@ if(loading){
         direction="row"
         spacing={2} >   
         { travelData.filter((item)=>{
-           return item.name.includes(searchTerm);
+           return item.country.includes(searchTerm);
         }).map( ( item, index)=>(
            
              <Grid key={index}item md={4}>
