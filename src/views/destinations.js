@@ -1,36 +1,66 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React,{useState}  from 'react'
+import { useQuery  } from "react-query";
 import Card from '../components/Card/card'
-import {Grid} from '@material-ui/core';
+import {CircularProgress}  from '@material-ui/core';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
-// import Slider from '../components/Slider/slider'
-import {Link} from 'react-router-dom'
-import useFetch from '../hooks/useFetch';
+import {Link } from 'react-router-dom'
+import NocesList from '../NocesList'
+import Button from '@material-ui/core/Button';
+import Pagination from '@material-ui/lab/Pagination';
+
+
+const fetechNoces = (page = 0) => {
+  const baseUrlApi =
+    process.env.REACT_APP_BASE_URL_API || `https://nuptiaeback.azurewebsites.net/api/v1`;
+  return fetch(`${baseUrlApi}/Catalog?pageNum=`+page).then((response) => response.json());
+};
+
 
 export default function destinations() {
- 
-const [loading, travelData] = useFetch('https://localhost:58579/api/v1/Catalog?pageSize=10');
-const [searchTerm, setSearchTerm] = useState("")
 
+// const [loading, travelData] = useFetch('https://nuptiaeback.azurewebsites.net/api/v1/Catalog?pageSize=10');
+const [searchTerm, setSearchTerm] = useState("")
 
 const handleSearchTerm = (e) => {
 let value = e.target.value
 setSearchTerm(value);
 };
+  const [page, setPage] = React.useState(0)
 
+  const { status, data } = useQuery(
+      ["noces","id", page] ,
+      () =>fetechNoces(page),
+      {keepPreviousData: true , staleTime: 5000}
+      );
+ const handleChange = (event, value) => {
+    setPage(value);
+  };
 
-if(loading){
-    return 'Chargement...'  
-}
     return (
         
         <> 
     <Header/>
       <Navigation searchTerm = {handleSearchTerm}/>
+            {status === "loading" && <CircularProgress />}
+            {status === "success" && 
+            
+             <NocesList data={data} >  </NocesList>
+            }
+
+
+
+
+      <Pagination  count={10} page={page} onChange={handleChange} siblingCount={0} />
+
+<Button onClick={()=> setPage(1)}>Page 1</Button>
+<Button onClick={()=> setPage(2)}>Page 3</Button>
+<Button onClick={()=> setPage(3)}>Page 3</Button>
+
      {/* <Slider images={Images}  /> */}
-        <Grid container  alignItems="flex-start"
+        {/* <Grid container  alignItems="flex-start"
         justify="center"
         direction="row"
         spacing={2} >   
@@ -57,7 +87,7 @@ if(loading){
                 </Link>
          
         </Grid>))}
-     </Grid>
+     </Grid> */}
      </>  
     )   
 }
