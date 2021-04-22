@@ -1,5 +1,6 @@
 
 import Destinations from "./views/destinations"
+ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import Error404 from "./views/error404page"
 import { BrowserRouter as Router, Route ,Switch } from "react-router-dom";
 import Footer from './components/footer/footer'
@@ -11,9 +12,12 @@ import inscription from "./views/inscription";
 import authentification from "./views/authentification"
 import DetailVoyage from "./views/detailVoyage";
 
+const queryClient = new QueryClient()
 function App() {
   return (
-    <Router> 
+    <QueryClientProvider client={queryClient}> 
+    <Router>  
+     
     <div className="App">
      
 
@@ -38,6 +42,7 @@ function App() {
       <Footer/>
     </div>
     </Router>
+    </QueryClientProvider>
   );
 }
 

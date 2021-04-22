@@ -41,8 +41,8 @@ export default function detailVoyage() {
           
                 <div className={classes.paper}> 
                  <Grid item xs={6} sm={5}   direction="row" >
-                            <h1>{location.state.nom}</h1>
-                            <h4>{location.state.pays}, {location.state.ville}</h4>
+                            <h1>{location.state.name}</h1>
+                            <h4>{location.state.country}, {location.state.town}</h4>
 
                  </Grid>
            <Grid item xs={12} sm={6}>

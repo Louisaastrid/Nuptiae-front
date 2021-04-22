@@ -34,17 +34,17 @@ const style = makeStyles((theme)=>({
  
 }));
 
-export default function card({id,name, description, price, imageUrl }) {
+export default function card({id,name, description, price, picture }) {
    const classes = style();
 
     return (
       <> 
       <Card key={id}  className={classes.root}>
       <CardActionArea>
-       {imageUrl && (<CardMedia className={classes.media}
+       {picture && (<CardMedia className={classes.media}
           component="img"
           alt={name}
-          image= {imageUrl}
+          image= {picture}
           title={name}
         />)}
        <CardContent>
@@ -79,7 +79,7 @@ Card.prototype ={
     name: string.isRequired ,
     description : string.isRequired,
     price  : number.isRequired,
-    imageUrl : string
+    picture : string
 };
 
 Card.defaultProps ={
