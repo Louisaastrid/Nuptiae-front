@@ -40,10 +40,7 @@ const classes = style();
 const [loading, travelData] = useFetch('http://nuptiaeback.azurewebsites.net/api/v1/Catalog?pageSize=10');
 
 
-   
-    if(loading){
-    return 'Chargement...'
-}
+ 
     return (
        
      <>
