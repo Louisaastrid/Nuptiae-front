@@ -5,7 +5,6 @@ import Navigation from '../components/Navigation/navigation'
 export default function blog() {
     return (
         <div>
-             <Header/>
       <Navigation/>
             
         </div>

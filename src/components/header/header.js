@@ -34,9 +34,6 @@ export default function header() {
 const classes = style();
 
     return (
-    //   <AppBar className={classes.header} position="sticky">
-    //     <Button color="inherit"> <SupervisorAccountIcon/>  Mon compte </Button>
-    //  </AppBar>
     <Box className={classes.header}>
           <Button className={classes.coor} component={Link} to='/inscription'> <SupervisorAccountIcon/>  Mon compte </Button>
     </Box>
