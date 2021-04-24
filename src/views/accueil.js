@@ -9,7 +9,7 @@ import Navigation from '../components/Navigation/navigation'
 // import Slider from '../components/Slider/slider'
 import {Link} from 'react-router-dom'
 import useFetch from '../hooks/useFetch';
-
+import Carousel from '../components/Carousel/Carousel'
 
 
 
@@ -44,8 +44,9 @@ const [loading, travelData] = useFetch('http://nuptiaeback.azurewebsites.net/api
     return (
        
      <>
-      <Header/>
       <Navigation/>
+         <Carousel/>
+
           {/* <Slider  /> */}
         <div className={classes.root}> 
             {travelData && travelData.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
@@ -58,6 +59,7 @@ const [loading, travelData] = useFetch('http://nuptiaeback.azurewebsites.net/api
             justify="center"
             direction="row"
             spacing={2} >
+
 
             {travelData&&travelData.map((test)=>(
             <Grid item md={4}>

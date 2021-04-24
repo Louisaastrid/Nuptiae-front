@@ -6,7 +6,6 @@ import Navigation from '../components/Navigation/navigation'
 export default function contact() {
     return (
         <div>
-             <Header/>
       <Navigation/>
      
         </div>

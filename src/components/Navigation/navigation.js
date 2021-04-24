@@ -10,9 +10,7 @@ import {Link} from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
 
 const style = makeStyles(() => ({
-  root: {
-    zIndex: "1"
-  },
+
   inputRoot: {
     color: 'inherit',
   },
@@ -75,9 +73,10 @@ export default function navigation({searchTerm}) {
   };
     const classes = style();
     return (
-          <ThemeProvider theme={theme}>
 
-        <AppBar position="static" color='transparent' className={classes.root}>
+                        <ThemeProvider theme={theme}>
+
+        <AppBar position="sticky"  className={classes.root}>
         <Toolbar >
           <Typography  variant="h6" className={classes.title} component={Link} to='/' >
            <span className={classes.nameNup}>Nupt</span>
@@ -85,18 +84,18 @@ export default function navigation({searchTerm}) {
            </Typography>
           <Tabs
           value={value}
-        indicatorColor="primary"
-        textColor="primary"
+        indicatorColor="white"
+        textColor="white"
         onChange={handleChange}
         aria-label="disabled tabs example">
           <Tab label="Destinations" component={Link} to='/destinations'/>
           <Tab label="Liste de noce" component={Link} to='/liste' />
           <Tab label="Activités" component={Link} to='/activites' />
-           <Tab label="Blog" component={Link} to='/blog' />
-                <div className={classes.search}>
-            <div className={classes.searchIcon}>
+          <Tab label="Blog" component={Link} to='/blog' />
+          <div className={classes.search}>
+          <div className={classes.searchIcon}>
               <SearchIcon />
-            </div>
+          </div>
             <InputBase
               placeholder="Search…"
               classes={{
@@ -108,12 +107,10 @@ export default function navigation({searchTerm}) {
             />
           </div>
 
-          {/* <SearchInpput/> */}
         </Tabs>
 
         </Toolbar>
       </AppBar>
-      </ThemeProvider>
-
+</ThemeProvider>
     )
 }

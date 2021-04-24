@@ -41,7 +41,6 @@ export default function inscription() {
     
     return (
         <>
-        <Header/>
       <Navigation/>
         <div className={classes.arriereplan}>
                                   <h1  className={classes.ttleStyle}>Inscriprion</h1>

@@ -29,7 +29,6 @@ export default function detailVoyage() {
 
     return (
         <>
-            <Header/>
       <Navigation/>
         <div className={classes.root}>
 

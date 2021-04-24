@@ -2,13 +2,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React,{useState}  from 'react'
 import { useQuery  } from "react-query";
-import Card from '../components/Card/card'
 import {CircularProgress}  from '@material-ui/core';
 import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
-import {Link } from 'react-router-dom'
 import NocesList from '../NocesList'
-import Button from '@material-ui/core/Button';
 import Pagination from '@material-ui/lab/Pagination';
 
 
@@ -21,7 +18,6 @@ const fetechNoces = (page = 0) => {
 
 export default function destinations() {
 
-// const [loading, travelData] = useFetch('https://nuptiaeback.azurewebsites.net/api/v1/Catalog?pageSize=10');
 const [searchTerm, setSearchTerm] = useState("")
 
 const handleSearchTerm = (e) => {
@@ -35,29 +31,19 @@ setSearchTerm(value);
       () =>fetechNoces(page),
       {keepPreviousData: true , staleTime: 5000}
       );
- const handleChange = (event, value) => {
-    setPage(value);
-  };
+    const handleChange = (event, value) => {
+       setPage(value);
+     };
 
     return (
         
         <> 
-    <Header/>
       <Navigation searchTerm = {handleSearchTerm}/>
             {status === "loading" && <CircularProgress />}
-            {status === "success" && 
-            
-             <NocesList data={data} >  </NocesList>
-            }
+            {status === "success" &&  <NocesList data={data}/>}
+    <Pagination  count={10} page={page} onChange={handleChange} siblingCount={0} />
 
 
-
-
-      <Pagination  count={10} page={page} onChange={handleChange} siblingCount={0} />
-
-<Button onClick={()=> setPage(1)}>Page 1</Button>
-<Button onClick={()=> setPage(2)}>Page 3</Button>
-<Button onClick={()=> setPage(3)}>Page 3</Button>
 
      {/* <Slider images={Images}  /> */}
         {/* <Grid container  alignItems="flex-start"
