@@ -2,7 +2,6 @@
 import React from 'react'
 import { useLocation} from 'react-router-dom'
 import { makeStyles} from '@material-ui/core';
-import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
 import Grid from '@material-ui/core/Grid';
 import moment from 'moment'
@@ -31,18 +30,11 @@ export default function detailVoyage() {
         <>
       <Navigation/>
         <div className={classes.root}>
-
-            {/* {loading && <div>Chargement...</div>} */}
-           {/* {travelData && <div>{travelData.name}</div>} */}
                  <Grid container spacing={2}   direction="row">
-  
-                 
-          
                 <div className={classes.paper}> 
                  <Grid item xs={6} sm={5}   direction="row" >
                             <h1>{location.state.name}</h1>
                             <h4>{location.state.country}, {location.state.town}</h4>
-
                  </Grid>
            <Grid item xs={12} sm={6}>
            <img alt= "blabla " src={location.state.image}/>

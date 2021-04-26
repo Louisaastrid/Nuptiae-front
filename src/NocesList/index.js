@@ -1,14 +1,28 @@
 /* eslint-disable no-undef */
-import React from 'react'
+import React ,{useState}  from 'react'
 import { Grid } from "@material-ui/core";
 import CardNoces from "../components/Card/card"
 import { arrayOf, shape, func } from "prop-types";
 import {Link } from 'react-router-dom'
+import Navigation from '../components/Navigation/navigation'
+
 
 export default function NocesList({data}) {
+    const [searchTerm, setSearchTerm] = useState("")
+
+const handleSearchTerm = (e) => {
+let value = e.target.value
+setSearchTerm(value);
+};
     return (
+        <>
+              <Navigation searchTerm = {handleSearchTerm}/>
+
        <Grid container justify="space-evenly">
-      { data.map((item) => (
+           
+      { data.filter((item)=>{
+           return item.country.toUpperCase().includes(searchTerm.toUpperCase());
+        }).map((item) => (
         <Grid key={item.id} item md={4} xs={6} spacing={8}>
              <Link style={{ textDecoration: 'none' }} to={{
                     pathname:`/destination/${item.id}`,
@@ -29,6 +43,7 @@ export default function NocesList({data}) {
         </Grid>
       ))}
     </Grid>
+    </>
     )
 }
 

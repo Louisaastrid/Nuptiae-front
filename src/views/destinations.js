@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React,{useState}  from 'react'
+import React  from 'react'
 import { useQuery  } from "react-query";
 import {CircularProgress}  from '@material-ui/core';
-import Header from '../components/header/header'
-import Navigation from '../components/Navigation/navigation'
 import NocesList from '../NocesList'
 import Pagination from '@material-ui/lab/Pagination';
 
@@ -18,12 +16,6 @@ const fetechNoces = (page = 0) => {
 
 export default function destinations() {
 
-const [searchTerm, setSearchTerm] = useState("")
-
-const handleSearchTerm = (e) => {
-let value = e.target.value
-setSearchTerm(value);
-};
   const [page, setPage] = React.useState(0)
 
   const { status, data } = useQuery(
@@ -38,7 +30,7 @@ setSearchTerm(value);
     return (
         
         <> 
-      <Navigation searchTerm = {handleSearchTerm}/>
+      {/* <Navigation searchTerm = {handleSearchTerm}/> */}
             {status === "loading" && <CircularProgress />}
             {status === "success" &&  <NocesList data={data}/>}
     <Pagination  count={10} page={page} onChange={handleChange} siblingCount={0} />
