@@ -2,16 +2,15 @@
 /* eslint-disable no-undef */
 import React from 'react'
 import Galery from '../components/Galery/galery'
-import {Grid,makeStyles} from '@material-ui/core';
+import {Grid,makeStyles,CircularProgress} from '@material-ui/core';
 import Card from '../components/Card/card'
-import Header from '../components/header/header'
 import Navigation from '../components/Navigation/navigation'
-// import Slider from '../components/Slider/slider'
 import {Link} from 'react-router-dom'
 import useFetch from '../hooks/useFetch';
 import Carousel from '../components/Carousel/Carousel'
-
-
+import Filter from '../components/Filter/filter'
+import useTrip from '../fetch/fetchCatalog'
+import { useQuery  } from "react-query";
 
 const style = makeStyles((theme)=>({
   root: {
@@ -29,6 +28,9 @@ const style = makeStyles((theme)=>({
      color: '#707070',
      fontSize: '25px',
      fontWeight: 'normal'
+  },
+     filter: {
+    alignContent: 'center',
   }
 
  
@@ -36,20 +38,32 @@ const style = makeStyles((theme)=>({
 
 
 export default function accueil() {
+  const { isFetching, data: noces } = useTrip();
+  
+const fetechNoces = () => {
+  const baseUrlApi =
+    process.env.REACT_APP_BASE_URL_API || `https://nuptiaeback.azurewebsites.net/api/v1`;
+  return fetch(`${baseUrlApi}/Catalog`).then((response) => response.json());
+};
 const classes = style();
 const [loading, travelData] = useFetch('http://nuptiaeback.azurewebsites.net/api/v1/Catalog?pageSize=10');
-
-
+  const { status, data } = useQuery(
+      ["noces","id"] ,
+      () =>fetechNoces(),
+      {keepPreviousData: true , staleTime: 5000}
+      );
  
     return (
        
      <>
       <Navigation/>
          <Carousel/>
+           {status === "loading" && <CircularProgress />}
+            {status === "success" && <>
 
-          {/* <Slider  /> */}
+  
         <div className={classes.root}> 
-            {travelData && travelData.map((test)=>(<Galery key={test.country}/>)).slice(0,1)}
+           <Galery />
         </div>
         <div className={classes.root} >
             <p className={classes.slogan}>Voyez grand</p>
@@ -61,7 +75,7 @@ const [loading, travelData] = useFetch('http://nuptiaeback.azurewebsites.net/api
             spacing={2} >
 
 
-            {travelData&&travelData.map((test)=>(
+            {data&&data.map((test)=>(
             <Grid item md={4}>
                   <Link style={{ textDecoration: 'none' }} to={{
                     pathname:`/destination/${test.id}`,
@@ -76,8 +90,8 @@ const [loading, travelData] = useFetch('http://nuptiaeback.azurewebsites.net/api
               <Card  name={test.name}description = {test.description} imageUrl ={test.picture}
             price={test.price}/> 
              </Link>
-            </Grid>)).splice(travelData.length-3)}
-        </Grid>
+            </Grid>)).splice(data.length-3)}
+        </Grid> </>}
     </>
     )
 }

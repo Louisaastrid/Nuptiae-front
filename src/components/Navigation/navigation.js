@@ -74,7 +74,7 @@ export default function navigation({searchTerm}) {
     const classes = style();
     return (
 
-                        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
 
         <AppBar position="sticky"  className={classes.root}>
         <Toolbar >
