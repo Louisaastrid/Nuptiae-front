@@ -30,16 +30,6 @@ const style = makeStyles((theme)=>({
   },
   card_title_style:{
     color: '#00a8cc',
-    maxHeight: 100, 
-   textOverflow: "ellipsis",
-    overflow: "hidden",
-    display: "-webkit-box",
-    "-webkit-line-clamp": 2,
-    "-webkit-box-orient": "vertical",
-  }
-  ,
-  card_maxe:{
-    maxHeight: 350, 
   }
  
 }));
@@ -57,7 +47,7 @@ export default function card({id,name, description, price, picture }) {
           image= {picture}
           title={name}
         />)}
-       <CardContent className={classes.card_maxe}>
+       <CardContent>
           <Grid container alignItems="center">
           <Grid item xs> 
           <Typography gutterBottom variant="h4" className={classes.card_title_style}>

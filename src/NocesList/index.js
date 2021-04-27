@@ -7,8 +7,11 @@ import {Link } from 'react-router-dom'
 import Navigation from '../components/Navigation/navigation'
 
 
+
 export default function NocesList({data}) {
     const [searchTerm, setSearchTerm] = useState("")
+        const [Term, setTerm] = useState("")
+
 
 const handleSearchTerm = (e) => {
 let value = e.target.value
@@ -17,11 +20,12 @@ setSearchTerm(value);
     return (
         <>
               <Navigation searchTerm = {handleSearchTerm}/>
+                    
 
        <Grid container justify="space-evenly">
            
       { data.filter((item)=>{
-           return item.country.toUpperCase().includes(searchTerm.toUpperCase());
+           return item.country.toUpperCase().includes(searchTerm.toUpperCase(),Term);
         }).map((item) => (
         <Grid key={item.id} item md={4} xs={6} spacing={8}>
              <Link style={{ textDecoration: 'none' }} to={{

@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
+import { useQuery  } from "react-query";
 
 const images = [
   {
@@ -128,27 +130,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function galery({title}) {
+export default function galery({id,country, picture}) {
      // eslint-disable-next-line react-hooks/rules-of-hooks
      const classes = useStyles();
-
+const fetechNoces = () => {
+  const baseUrlApi =
+    process.env.REACT_APP_BASE_URL_API || `https://nuptiaeback.azurewebsites.net/api/v1`;
+  return fetch(`${baseUrlApi}/Catalog`).then((response) => response.json());
+};
+  const { status, data } = useQuery(
+      ["noces","id"] ,
+      () =>fetechNoces(),
+      {keepPreviousData: true , staleTime: 5000}
+      );
   return (
+  
     <div className={classes.root}>
-      {images.map((image) => (
+      {data&&data.map((test) => (
         <ButtonBase
           focusRipple
-          key={title}
+          key={test.id}
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          style={{
-            width: image.width,
-            height: image.height,
+         style={{
+            width: 500
           }}
         >
           <span
             className={classes.imageSrc}
             style={{
-              backgroundImage: `url(${image.url})`,
+              backgroundImage: `url(${test.picture})`,
             }}
           />
           <span className={classes.imageBackdrop} />
@@ -159,7 +170,7 @@ export default function galery({title}) {
               color="inherit"
               className={classes.imageTitle}
             >
-              {image.title}
+              {test.country}
               <span className={classes.imageMarked} />
             </Typography>
           </span>
