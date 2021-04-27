@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState} from 'react'
-import {AppBar,Toolbar,Typography, makeStyles, InputBase } from '@material-ui/core'
+import {AppBar,Toolbar,Typography, makeStyles, InputBase ,TextField} from '@material-ui/core'
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { theme } from "./theme";
@@ -104,6 +104,7 @@ export default function navigation({searchTerm}) {
               }}
               onChange={searchTerm}
               inputProps={{ 'aria-label': 'search' }}
+              autoComplete='true'
             />
           </div>
 

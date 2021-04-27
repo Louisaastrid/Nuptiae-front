@@ -5,7 +5,7 @@ import { useQuery  } from "react-query";
 import {CircularProgress}  from '@material-ui/core';
 import NocesList from '../NocesList'
 import Pagination from '@material-ui/lab/Pagination';
-
+import Errorview from "../views/error404page"
 
 const fetechNoces = (page = 0) => {
   const baseUrlApi =
@@ -32,6 +32,7 @@ export default function destinations() {
         <> 
       {/* <Navigation searchTerm = {handleSearchTerm}/> */}
             {status === "loading" && <CircularProgress />}
+            {status === "error" && <Errorview />}
             {status === "success" &&  <NocesList data={data}/>}
     <Pagination  count={10} page={page} onChange={handleChange} siblingCount={0} />
 
